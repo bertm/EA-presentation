@@ -17,6 +17,7 @@
 % Styling.
 \setlength{\parskip}{1em}
 \usetheme[style=plain,includehead=false,sidebar=true]{uu}
+\setlength{\grammarindent}{6.5em}
 
 % Title, subtitle, author and date.
 \title{Grammatical Evolution Considered Harmful} %TODO
@@ -118,5 +119,24 @@
 \only<2>{\paper{Evolving Levels for \sout{Super} \textit{Infinite} Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}}
 \end{frame}
 
+\begin{frame}
+\frametitle{A simple grammar}
+\begin{grammar}
+<prog>     ::= \synt{action} \synt{object} \hfill (0) \hspace{1em}
+            \alt \lit*{if} \lit*(\synt{object} \lit*{is} \synt{property}\lit*)
+              \lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
+
+<object>   ::= \lit*{nuclear missile} \hfill (0) \hspace{1em}
+            \alt \lit*{kitten} \hfill (1) \hspace{1em}
+
+<property> ::= \lit*{dirty} \hfill (0) \hspace{1em}
+            \alt \lit*{clean} \hfill (1) \hspace{1em}
+
+<action>   ::= \lit*{clean} \hfill (0) \hspace{1em}
+            \alt \lit*{launch} \hfill (1) \hspace{1em}
+            \alt \lit*{look at} \hfill (2) \hspace{1em} \par
+\end{grammar}
+
+\end{frame}
 
 \end{document}
