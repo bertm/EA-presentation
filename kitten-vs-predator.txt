@@ -40,7 +40,7 @@ Mutation (pos=1)
 ================
 
 2 7 4 4 6 3
-launch nuclear bomb
+launch nuclear missile
 (fitness: kitten happy = 0)
 
 
@@ -50,6 +50,6 @@ Recombination (pos=1)
 8<5 3
 1>7 4 4 6 3
 8 7 4 4 6 3
-launch nuclear bomb
+launch nuclear missile
 (fitness: kitten happy = 0)
 
