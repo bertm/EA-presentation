@@ -1,0 +1,122 @@
+\documentclass{beamer}
+
+% Packages.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[nounderscore]{syntax}
+\usepackage{microtype}
+\usepackage{nameref}
+\usepackage{ulem}
+
+% Styling.
+\setlength{\parskip}{1em}
+\usetheme[style=plain,includehead=false,sidebar=true]{uu}
+
+% Title, subtitle, author and date.
+\title{Grammatical Evolution Considered Harmful} %TODO
+\subtitle{Evolutionary Computing 2014}
+\author{Bert Massop, Simon Prins, Tom Tervoort}
+\date{January 23, 2014}
+
+% Macros.
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+\newcommand{\paper}[2]{\begin{centering}
+\usebeamercolor[fg]{title}\usebeamerfont{title}#1\par
+\bigskip\normalsize{}\usebeamercolor[fg]{normal text}\usebeamerfont{normal text}#2\par
+\end{centering}}
+
+\begin{document}
+
+% Title page.
+\begin{frame}
+\titlepage
+\end{frame}
+
+% TOC.
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Grammatical Evolution}
+\subsection{Introduction}
+\begin{frame}
+\frametitle{\currentname}
+\begin{itemize}
+\item Grammatical Evolution is \dots %TODO
+
+% Mention paper by O'Neill, where the foundations for GE are laid
+\end{itemize}
+\end{frame}
+
+\subsection{Other techniques}
+\begin{frame}
+% Mention GP and compare.
+\end{frame}
+
+
+
+\section{Ms.\,Pac-Man controller}
+\begin{frame}
+\paper{Evolving a Ms.\,Pac-Man Controller Using Grammatical Evolution}{E. Galv\'an, J. Swafford, M. O'Neill, and A. Brabazon}
+\end{frame}
+
+\subsection{Goal}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+\subsection{Experiment setup}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+\subsection{Results}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+
+
+\section{Super Mario Bros levels}
+\begin{frame}
+\paper{Evolving Levels for Super Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}
+\end{frame}
+
+\subsection{Goal}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+\subsection{Experiment setup}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+\subsection{Results}
+\begin{frame}
+\frametitle{\currentname}
+\end{frame}
+
+
+
+\section{Discussion}
+\begin{frame}
+\frametitle{Not all papers are created equal\dots}
+\end{frame}
+
+\begin{frame}
+\only<1>{\paper{Evolving Levels for Super Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}}
+\only<2>{\paper{Evolving Levels for \sout{Super} \textit{Infinite} Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}}
+\end{frame}
+
+
+\end{document}
