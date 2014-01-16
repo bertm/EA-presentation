@@ -1,0 +1,55 @@
+Fitness function
+================
+The happiness of a kitten, measured on a scale from 0 to 10.
+
+Grammar
+=======
+
+<prog>     := <action> <object>               (0)
+            | if (<object> is <property>)
+              { <prog> }                      (1)
+
+<object>   := nuclear missile                 (0)
+            | kitten                          (1)
+
+<property> := dirty                           (0)
+            | clean                           (1)
+
+<action>   := clean                           (0)
+            | launch                          (1)
+            | look at                         (2)
+
+
+Example sentences
+=================
+1 7 4 4 6 3
+if (kitten is dirty)
+{
+    clean kitten
+}
+(fitness: kitten happy = 9)
+
+8 5 3
+look at kitten
+(fitness: kitten happy = 7) 
+
+
+
+
+Mutation (pos=1)
+================
+
+2 7 4 4 6 3
+launch nuclear bomb
+(fitness: kitten happy = 0)
+
+
+Recombination (pos=1)
+=====================
+
+8<5 3
+1>7 4 4 6 3
+8 7 4 4 6 3
+launch nuclear bomb
+(fitness: kitten happy = 0)
+
