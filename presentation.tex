@@ -52,14 +52,22 @@
 \begin{frame}
 \frametitle{\currentname}
 \begin{itemize}
-\item Grammatical Evolution is \dots %TODO
-
-% Mention paper by O'Neill, where the foundations for GE are laid
+\item Grammatical Evolution is \dots 
+\item Introduced in paper Grammatical Evolution by Michael O’Neill et al.
+\item Encode choices in grammar as array of binary integers.
+\item Use standard bit flip mutation and one point crossover.
+%TODO Add example?
 \end{itemize}
+
 \end{frame}
 
 \subsection{Other techniques}
 \begin{frame}
+Genetic Programming:
+\begin{itemize}
+\item Uses tree representation.
+\item Swap nodes in tree as crossover.
+\end{itemize}
 % Mention GP and compare.
 \end{frame}
 
@@ -73,16 +81,32 @@
 \subsection{Goal}
 \begin{frame}
 \frametitle{\currentname}
+\begin{itemize}
+\item Use GE to evolve rules.
+\item Rules allow Ms. Pac-Man to maneuver through the maze.
+\item Rules maximize score.
+\end{itemize}
 \end{frame}
 
 \subsection{Experiment setup}
 \begin{frame}
 \frametitle{\currentname}
+Record scores over 100 runs with one life and in one level.
+Compare best evolved agent against:
+\begin{itemize}
+\item Random agent
+\item Random non-reverse agent
+\item Simple Pill Eater agent
+\item Hand-coded agent
+\end{itemize}
+Against three different ghost teams.
 \end{frame}
 
 \subsection{Results}
 \begin{frame}
 \frametitle{\currentname}
+%TODO insert table of scores.
+The evolved agent scores best against each ghost team.
 \end{frame}
 
 
@@ -95,11 +119,24 @@
 \subsection{Goal}
 \begin{frame}
 \frametitle{\currentname}
+\begin{itemize}
+\item Evolve levels for Infinite Mario Bros using Grammatical Evolution.
+\item To provide a framework for analyzing and comparing expressivity ranges of different generators.
+\end{itemize}
 \end{frame}
 
 \subsection{Experiment setup}
 \begin{frame}
 \frametitle{\currentname}
+Evolve level for Notch's Infinite Mario Bros game.\\
+Compare against Notch's level generator and against an adapted version of that generator.\\
+Use the following measures to compare them:
+\begin{itemize}
+\item Linearity
+\item Density
+\item Leniency
+\item Compression Distance
+\end{itemize}
 \end{frame}
 
 \subsection{Results}
