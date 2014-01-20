@@ -44,10 +44,9 @@
 \section{Grammatical Evolution}
 \subsection{Introduction}
 \begin{frame}
-\frametitle{\currentname}
+\frametitle{Grammatical Evolution}
 \begin{itemize}
-\item Grammatical Evolution is \dots 
-\item Introduced in paper Grammatical Evolution by Michael O’Neill et al.
+\item Introduced in paper \textit{Grammatical Evolution} by Michael O'Neill et al.
 \item Encode choices in grammar as array of binary integers.
 \item Use standard bit flip mutation and one point crossover.
 %TODO Add example?
@@ -141,13 +140,20 @@ Use the following measures to compare them:
 
 
 \section{Discussion}
+\subsection{Grammatical Evolution}
 \begin{frame}
-\frametitle{Not all papers are created equal\dots}
+\begin{center}
+\large What is \textit{wrong} with Grammatical Evolution?
+\end{center}
 \end{frame}
 
 \begin{frame}
-\only<1>{\paper{Evolving Levels for Super Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}}
-\only<2>{\paper{Evolving Levels for \sout{Super} \textit{Infinite} Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}}
+\frametitle{A case against Grammatical Evolution}
+\begin{itemize}
+\item Simple grammar about kittens\footnote{No kittens were harmed in the production of this presentation.\\} and nuclear missiles
+\item Genetic operators as in papers
+\item Goal: \textit{make the kitten happy}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -155,7 +161,7 @@ Use the following measures to compare them:
 \begin{grammar}
 <prog>     ::= \synt{action} \synt{object} \hfill (0) \hspace{1em}
             \alt \lit*{if} \lit*(\synt{object} \lit*{is} \synt{property}\lit*)
-              \\\lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
+              \\\lit*{\{} \synt{prog} \lit*{\}} \hfill (1) \hspace{1em}
 
 <object>   ::= \lit*{nuclear missile} \hfill (0) \hspace{1em}
             \alt \lit*{kitten} \hfill (1) \hspace{1em}
@@ -175,7 +181,7 @@ Use the following measures to compare them:
 \begin{grammar}
 <prog>     ::= \synt{action} \synt{object} \hfill (0) \hspace{1em}
             \alt \lit*{if} \lit*(\synt{object} \lit*{is} \synt{property}\lit*)
-              \\\lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
+              \\\lit*{\{} \synt{prog} \lit*{\}} \hfill (1) \hspace{1em}
 
 <object>   ::= \lit*{nuclear missile} \hfill (0) \hspace{1em}
             \alt \lit*{kitten} \hfill (1) \hspace{1em}
@@ -201,6 +207,8 @@ Use the following measures to compare them:
 
 \begin{frame}
 \frametitle{Genetic operator performance}
+Let's try 1-point crossover and bit-flip mutation.
+
 \framebox{\parbox[t][][t]{13em}{\textbf{1 7 4 4 6 3}
 \\\texttt{if (kitten is dirty)
 \\\{
@@ -220,11 +228,94 @@ Use the following measures to compare them:
 \\\textit{kitten happiness = 0}}}
 }
 \visible<3->{\parbox[t][][t]{13em}{\sout{1} \textbf{7 4 4 6 3}
-\\\textbf{2}
+\\\textbf{0}
 \visible<4->{
 \\\texttt{launch nuclear missile}
 \\\textit{kitten happiness = 0}}}
 }
+\end{frame}
+
+\subsection{Paper trouble}
+\begin{frame}
+\frametitle{Not all papers are created equal\dots}
+\begin{itemize}
+\item Several apparent problems with the papers.
+\item Titles are \sout{misleading} slightly misinformative.
+\item Experiments cannot be verified
+\begin{itemize}
+\item Missing parameters
+\item Lacking source code
+\item Lacking data / results
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pac-Man trouble}
+\begin{itemize}
+\item Custom Pac-Man implementation
+\item Only one level with one life
+\item Weird ghost behaviour
+\item \textit{Not even close to Ms.\,Pac-Man}
+\end{itemize}
+\begin{itemize}
+\item Lacking a solid performance reference point
+\item Non-repeatable due to lacking information
+\end{itemize}
+\visible<2>{\begin{itemize}
+\item \textit{And seriously, stop using misleading biological \\terminology.}
+\end{itemize}}
+\end{frame}
+
+\begin{frame}
+\paper{Evolving a \only<1>{Ms.\,Pac-Man}\only<2>{\sout{Ms.\,Pac-Man}} Controller \only<2>{\textit{for an Obscure Pac-Man Clone }}Using Grammatical Evolution}{E. Galv\'an, J. Swafford, M. O'Neill, and A. Brabazon}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mario trouble}
+\begin{itemize}
+\item Pointless fitness function
+\item There is nothing wrong with referring to your own work, \\\textit{but don't overdo it}.
+\begin{itemize}
+\item 15/30 papers referenced have at least one author in common with this work.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Two optimal levels}
+\framebox{\includegraphics[width=0.9\textwidth]{coin-optimal}}
+
+\framebox{\includegraphics[width=0.9\textwidth]{goomba-optimal}}
+\end{frame}
+
+\begin{frame}
+\frametitle{`Wij van WC-eend\ldots'}
+\textit{``Procedural Content Generation (PCG) is a field that has
+recently emerged and proven its potential for automatically
+generating different aspects of game content such as game
+rulesets [4], \textcolor{red}{[5]}, maps \textcolor{red}{[6]}, \textcolor{red}{[7]}, levels [8], \textcolor{red}{[9]}, [10], racing
+tracks [11], \textcolor{red}{[12]} or even whole games [13], [14]. PCG can
+be used both offline, in order to make the game development
+process more efficient, and online, to allow the generation of
+endless variations of a game, make it infinitely replayable and
+adapting its content to the player [15], \textcolor{red}{[16]}. An overview of
+the state of the art can be found in \textcolor{red}{[17]}, \textcolor{red}{[18]}.''}
+\end{frame}
+
+\begin{frame}
+\paper{\only<1>{Evolving}\only<2>{\sout{Evolving} \textit{Generating}} Levels for \only<1>{Super}\only<2>{\sout{Super} \textit{Infinite}} Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}
+\end{frame}
+
+\section{Conclusions}
+\begin{frame}
+\frametitle{\currentname}
+\begin{itemize}
+\item Don't use Grammatical Evolution.
+\begin{itemize}
+\item Or, if you must, at least not as described in the O'Neill papers.
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
