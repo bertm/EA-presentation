@@ -41,12 +41,6 @@
 \titlepage
 \end{frame}
 
-% TOC.
-\begin{frame}
-\frametitle{Contents}
-\tableofcontents
-\end{frame}
-
 \section{Grammatical Evolution}
 \subsection{Introduction}
 \begin{frame}
@@ -161,7 +155,7 @@ Use the following measures to compare them:
 \begin{grammar}
 <prog>     ::= \synt{action} \synt{object} \hfill (0) \hspace{1em}
             \alt \lit*{if} \lit*(\synt{object} \lit*{is} \synt{property}\lit*)
-              \lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
+              \\\lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
 
 <object>   ::= \lit*{nuclear missile} \hfill (0) \hspace{1em}
             \alt \lit*{kitten} \hfill (1) \hspace{1em}
@@ -173,7 +167,64 @@ Use the following measures to compare them:
             \alt \lit*{launch} \hfill (1) \hspace{1em}
             \alt \lit*{look at} \hfill (2) \hspace{1em} \par
 \end{grammar}
+\end{frame}
 
+\begin{frame}
+\frametitle{Some sentences}
+\framebox{\parbox{19em}{\scriptsize\color{black}
+\begin{grammar}
+<prog>     ::= \synt{action} \synt{object} \hfill (0) \hspace{1em}
+            \alt \lit*{if} \lit*(\synt{object} \lit*{is} \synt{property}\lit*)
+              \\\lit*{\{} <prog> \lit*{\}} \hfill (1) \hspace{1em}
+
+<object>   ::= \lit*{nuclear missile} \hfill (0) \hspace{1em}
+            \alt \lit*{kitten} \hfill (1) \hspace{1em}
+
+<property> ::= \lit*{dirty} \hfill (0) \hspace{1em}
+            \alt \lit*{clean} \hfill (1) \hspace{1em}
+
+<action>   ::= \lit*{clean} \hfill (0) \hspace{1em}
+            \alt \lit*{launch} \hfill (1) \hspace{1em}
+            \alt \lit*{look at} \hfill (2) \hspace{1em} \par
+\end{grammar}}}
+
+\parbox[t][][t]{13em}{\textbf{1 7 4 4 6 3}
+\\\texttt{if (kitten is dirty)
+\\\{
+\\\hspace*{2em}clean kitten
+\\\}}
+\\\textit{kitten happiness = 9}}
+\parbox[t][][t]{13em}{\textbf{8 5 3}
+\\\texttt{look at kitten\\\null\\\null\\}
+\\\textit{kitten happiness = 7}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Genetic operator performance}
+\framebox{\parbox[t][][t]{13em}{\textbf{1 7 4 4 6 3}
+\\\texttt{if (kitten is dirty)
+\\\{
+\\\hspace*{2em}clean kitten
+\\\}}
+\\\textit{kitten happiness = 9}}
+\parbox[t][][t]{9em}{\textbf{8 5 3}
+\\\texttt{look at kitten\\\null\\\null\\}
+\\\textit{kitten happiness~=~7}}}
+\vfill
+
+
+\visible<2->{\parbox[t][][t]{13em}{1 \textbf{7 4 4 6 3}
+\\\textbf{8} 5 3
+\visible<4->{
+\\\texttt{launch nuclear missile}
+\\\textit{kitten happiness = 0}}}
+}
+\visible<3->{\parbox[t][][t]{13em}{\sout{1} \textbf{7 4 4 6 3}
+\\\textbf{2}
+\visible<4->{
+\\\texttt{launch nuclear missile}
+\\\textit{kitten happiness = 0}}}
+}
 \end{frame}
 
 \end{document}
