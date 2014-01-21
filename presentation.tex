@@ -213,15 +213,16 @@
 \frametitle{\currentname}
 
 \begin{grammar}
+\small
 <prog>      ::=  \synt{ifs} (0) | \synt{ifs} \synt{elses} (1) 				   \hspace{1em}
 
 <ifs>     ::= \lit*{if( } \synt{vars} \synt{equals} 
 				 \synt{vars} \lit*{ )\{ } \synt{prog} \lit*{ \}}	\hfill (0) \hspace{1em}
-		       \lit*{if( } \synt{vars} \synt{equals} 
+		\alt   \lit*{if( } \synt{vars} \synt{equals} 
 				 \synt{vars} \lit*{ )\{ } \synt{action} \lit*{ \}}	\hfill (1) \hspace{1em}
 				 
-<elses>   ::=  \lit*{else\{}  \synt{prog}   \lit*{ \}}  			\hfill (0) \hspace{1em}
-			   \lit*{else\{}  \synt{action} \lit*{ \}}  			\hfill (1) \hspace{1em}
+<elses>   ::=  \lit*{else\{}  \synt{prog}   \lit*{ \}}  (0) |
+			   \lit*{else\{}  \synt{action} \lit*{ \}}  (1)
 
 
 <action> ::=  \lit*{goto(nearestPill)} 						  		\hfill (0) \hspace{1em}
@@ -235,10 +236,9 @@
 	   \alt \lit*{inedibleGhostDistance} 							\hfill (1) \hspace{1em}
 	   \alt \lit*{avgDistanceBetGhosts} 							\hfill (2) \hspace{1em}
  	   \alt \lit*{windowSize} 										\hfill (3) \hspace{1em}
-
-
+ 	   
 \end{grammar}
-
+\vspace{-1em}
 \begin{itemize}
 	\item Fitness function: simulate the game.
 	\begin{itemize}
@@ -294,7 +294,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Grammar and fitness}
+\frametitle{Grammar and fitness function}
 \begin{itemize}
 \item A level is a collection of \textit{chunks} (functional attributes) at specified positions.
 \item Simplified grammar:
@@ -448,6 +448,16 @@ Let's try 1-point crossover and int-flip mutation.
 \\\texttt{launch nuclear missile}
 \\\textit{kitten happiness = 0}}}
 }
+\end{frame}
+
+\begin{frame}
+\frametitle{On the origin of mistakes}
+\begin{itemize}
+\item Problems can be traced back to O'Neill et al., explaining Grammatical Evolution in 2001.
+\item They clearly misunderstood genetic algorithms:\\
+\textit{``As the population being evolved comprises simple binary
+strings, we do not have to employ any special crossover or mutation operators [...]''} \cite{o2001grammatical}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
