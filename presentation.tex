@@ -16,7 +16,7 @@
 
 % Styling.
 \setlength{\parskip}{1em}
-\usetheme[style=plain,includehead=false,sidebar=true]{uu}
+% \usetheme[style=plain,includehead=false,sidebar=true]{uu}
 \setlength{\grammarindent}{6.5em}
 
 % Title, subtitle, author and date.
@@ -49,33 +49,111 @@
 \item Explained in paper \textit{Grammatical Evolution} by Michael O'Neill et al., 2001.
 \item Seeks to evolve sentences in a given context-free grammar.
 \item Heavily inspired by biology.
+\item Implemented in the GEVA framework.
 \end{itemize}
 \end{frame}
 
-\subsection{Encoding}
+\subsection{Encoding and Evolution}
 \begin{frame}
 \frametitle{\currentname}
 \begin{itemize}
-\item Encode choices in grammar as array of binary integers.
+\item Solutions, or ``chromosomes'', encoded as a finite sequence of (32-bit) natural numbers called ``codons''.
+\item Mehcanism:
+\begin{itemize}
+	\item Move to the next codon for each encountered nonterminal.
+	\item Pick a rule to expand it to based on the codon value.
+	\item rule index = (codon value) MOD (rule count).
+	\item Wrap when reaching the end of the sequence.
+	\item Stop when there are no more nonterminals, or a certain depth is reached.
 \end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item Different genetic operators can be used.
+	\item Here: one-point crossover and mutation by randomizing one codon.
+\end{itemize}
+
 \end{frame}
 
-\subsection{Genetic operators}
+\subsection{Example}
 \begin{frame}
 \frametitle{\currentname}
+\begin{grammar}
+<exp>      ::=   \synt{exp} \synt{operator} \synt{exp}  \hfill (0) \hspace{1em}
+            \alt \lit*{1.0}    					  		\hfill (1) \hspace{1em}
+            \alt \lit*{X}      					  		\hfill (2) \hspace{1em}
+
+<operator> ::=   \lit*{+} 						  		\hfill (0) \hspace{1em}
+		    \alt \lit*{-} 						  		\hfill (1) \hspace{1em}
+		    \alt \lit*{*} 						  		\hfill (2) \hspace{1em}
+		    \alt \lit*{/} 						 		\hfill (3) \hspace{1em}
+
+\end{grammar}
+
 \begin{itemize}
-\item Use standard bit flip mutation and one point crossover.
+
+	\only<1>
+	{	
+		\item Chromosome: \textbf{12 7 33 51 2 44 22 19}
+		\item Start with nonterminal <exp>.
+		\item 12 MOD 3 = 0, so pick first rule.
+	}
+
+	\only<2>
+	{	
+		\item Chromosome: \textbf{\sout{12} 7 33 51 2 44 22 19}
+		\item Sentence: \synt{exp} \synt{operator} \synt{exp}
+		\item First expand leftmost subexpression: 7 MOD 3 = 1.
+	}
+
+	\only<3>
+	{		
+		\item Chromosome: \textbf{\sout{12} \sout{7} 33 51 2 44 22 19}
+		\item Sentence: \lit*{1.0} \synt{operator} \synt{exp}
+		\item Operator is next: 33 MOD 4 = 1.
+	}
+
+	\only<4>
+	{		
+		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} 51 2 44 22 19}
+		\item Sentence: \lit*{1.0} \lit*{-} \synt{exp}
+		\item Remaining subexpression: 51 MOD 3 = 0.
+	}
+
+	\only<5>
+	{		
+		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} \sout{51} 2 44 22 19}
+		\item Sentence: \lit*{1.0} \lit*{-} (\synt{exp} \synt{operator} \synt{exp})
+		\item Continue...
+	}
+
+	\only<6>
+	{		
+		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} \sout{51} \sout{2} \sout{44} \sout{22} 19}
+		\item Sentence: \lit*{1.0} \lit*{-} (\lit*{X} \lit*{+} \lit*{1.0})
+		\item No more nonterminals in sentance, so we are done.
+	}
+
 \end{itemize}
 \end{frame}
 
-\subsection{Other techniques}
+\subsection{Alternative approach}
 \begin{frame}
-Genetic Programming:
+\frametitle{\currentname}
+
 \begin{itemize}
-\item Uses tree representation.
-\item Swap nodes in tree as crossover.
+	\item Grammars are trees.
 \end{itemize}
-% Mention GP and compare.
+
+\begin{itemize}
+	\item Genetic Programming
+	\begin{itemize}
+		\item Method for evolving tree structures.
+		\item Solutions represented as trees in memory.
+		\item Crossover: swap branches.
+		\item Mutation: change node's contents, while ensuring the tree remains valid.
+	\end{itemize}
+\end{itemize}
+
 \end{frame}
 
 
