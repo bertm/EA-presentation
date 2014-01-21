@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{galvan2010evolving}
+Edgar Galv{\'a}n-L{\'o}pez, John~Mark Swafford, Michael O’Neill, and Anthony
+  Brabazon.
+\newblock Evolving a {Ms.\,PacMan} controller using {G}rammatical {E}volution.
+\newblock In {\em Applications of Evolutionary Computation}, pages 161--170.
+  Springer, 2010.
+
+\bibitem{o2001grammatical}
+Michael O'Neill and Conor Ryan.
+\newblock {G}rammatical {E}volution.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 5(4):349--358,
+  2001.
+
+\bibitem{shaker2012evolving}
+Noor Shaker, Miguel Nicolau, Georgios~N Yannakakis, Julian Togelius, and
+  Michael O'Neill.
+\newblock Evolving levels for {Super Mario Bros} using {G}rammatical
+  {E}volution.
+\newblock In {\em IEEE Conference on Computational Intelligence and Games},
+  pages 304--311. IEEE, 2012.
+
+\end{thebibliography}
