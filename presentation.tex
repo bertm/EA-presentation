@@ -20,7 +20,7 @@
 \setlength{\grammarindent}{6.5em}
 
 % Title, subtitle, author and date.
-\title{Grammatical Evolution Considered Harmful} %TODO
+\title{Evolving Levels and Game Agents Using Grammatical Evolution}
 \subtitle{Evolutionary Computing 2014}
 \author{Bert Massop, Simon Prins, Tom Tervoort}
 \date{January 23, 2014}
@@ -46,12 +46,26 @@
 \begin{frame}
 \frametitle{Grammatical Evolution}
 \begin{itemize}
-\item Introduced in paper \textit{Grammatical Evolution} by Michael O'Neill et al.
-\item Encode choices in grammar as array of binary integers.
-\item Use standard bit flip mutation and one point crossover.
-%TODO Add example?
+\item Explained in paper \textit{Grammatical Evolution} by Michael O'Neill et al., 2001.
+\item Seeks to evolve sentences in a given context-free grammar.
+\item Heavily inspired by biology.
 \end{itemize}
+\end{frame}
 
+\subsection{Encoding}
+\begin{frame}
+\frametitle{\currentname}
+\begin{itemize}
+\item Encode choices in grammar as array of binary integers.
+\end{itemize}
+\end{frame}
+
+\subsection{Genetic operators}
+\begin{frame}
+\frametitle{\currentname}
+\begin{itemize}
+\item Use standard bit flip mutation and one point crossover.
+\end{itemize}
 \end{frame}
 
 \subsection{Other techniques}
@@ -246,7 +260,7 @@ Let's try 1-point crossover and bit-flip mutation.
 \frametitle{Not all papers are created equal\dots}
 \begin{itemize}
 \item Several apparent problems with the papers.
-\item Titles are \sout{misleading} slightly misinformative.
+\item Titles are \sout{misleading} not entirely accurate.
 \item Experiments cannot be verified
 \begin{itemize}
 \item Missing parameters
@@ -274,10 +288,6 @@ Let's try 1-point crossover and bit-flip mutation.
 \end{frame}
 
 \begin{frame}
-\paper{Evolving a \only<1>{Ms.\,Pac-Man}\only<2>{\sout{Ms.\,Pac-Man}} Controller \only<2>{\textit{for an Obscure Pac-Man Clone }}Using Grammatical Evolution}{E. Galv\'an, J. Swafford, M. O'Neill, and A. Brabazon}
-\end{frame}
-
-\begin{frame}
 \frametitle{Mario trouble}
 \begin{itemize}
 \item Pointless fitness function
@@ -285,7 +295,10 @@ Let's try 1-point crossover and bit-flip mutation.
 \begin{itemize}
 \item 15/30 papers referenced have at least one author in common with this work.
 \end{itemize}
+\visible<2->{\item There is a difference between Super Mario Bros.~and Notch's Infinite Mario Bros.}
 \end{itemize}
+\visible<2->{\begin{center}\includegraphics[height=10em]{notch}\includegraphics[height=10em]{miyamoto}\end{center}
+}
 \end{frame}
 
 \begin{frame}
@@ -307,10 +320,6 @@ process more efficient, and online, to allow the generation of
 endless variations of a game, make it infinitely replayable and
 adapting its content to the player [15], \textcolor{red}{[16]}. An overview of
 the state of the art can be found in \textcolor{red}{[17]}, \textcolor{red}{[18]}.''}
-\end{frame}
-
-\begin{frame}
-\paper{\only<1>{Evolving}\only<2>{\sout{Evolving} \textit{Generating}} Levels for \only<1>{Super}\only<2>{\sout{Super} \textit{Infinite}} Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}
 \end{frame}
 
 \section{Conclusions}
