@@ -161,38 +161,114 @@
 \section{Ms.\,Pac-Man controller}
 \begin{frame}
 \paper{Evolving a Ms.\,Pac-Man Controller Using Grammatical Evolution}{E. Galv\'an, J. Swafford, M. O'Neill, and A. Brabazon}
+\begin{center}
+	\includegraphics[scale=0.5]{Mspacman.png}
+\end{center}
+\end{frame}
+
+\subsection{Ms.\,Pac-Man}
+\begin{frame}
+\frametitle{\currentname}
+\begin{center}
+	\includegraphics[scale=0.5]{mspacmankast.jpg}
+\end{center}
+
+\begin{itemize}
+	\item Popular arcade game from 1982.
+	\item Sequal to \textit{Pac-Man}. 
+	\begin{itemize}
+		\item Generally considered superior due to more varied levels and smarter ghosts.
+	\end{itemize}
+	\item Paper considers a Java-based derivate, not the original game.
+\end{itemize}
+
+\begin{itemize}
+	\item Premise: eat pills, avoid ghosts.
+	\begin{itemize}
+		\item Eating the big power pills will temporarily enable you to eat the ghosts.
+	\end{itemize}
+\end{itemize}
+
 \end{frame}
 
 \subsection{Goal}
 \begin{frame}
 \frametitle{\currentname}
 
-\includegraphics[scale=0.5]{Mspacman.png}
 \begin{itemize}
-\item Use GE to evolve rules.
-\item Rules allow Ms. Pac-Man to maneuver through the maze.
-\item Rules maximize score.
+	\item Use GE to evolve rules for an agent playing Ms.\,Pac-Man.
+	\item Try to maximize the score.
+	\begin{itemize}
+		\item Stay alive while eating as many pills (and ghosts) as possible.
+		\item Here: one life, one level.
+	\end{itemize}
 \end{itemize}
+
+\end{frame}
+
+
+\subsection{Grammar and fitness function}
+\begin{frame}
+\frametitle{\currentname}
+
+\begin{grammar}
+<prog>      ::=  \synt{ifs} (0) | \synt{ifs} \synt{elses} (1) 				   \hspace{1em}
+
+<ifs>     ::= \lit*{if( } \synt{vars} \synt{equals} 
+				 \synt{vars} \lit*{ )\{ } \synt{prog} \lit*{ \}}	\hfill (0) \hspace{1em}
+		       \lit*{if( } \synt{vars} \synt{equals} 
+				 \synt{vars} \lit*{ )\{ } \synt{action} \lit*{ \}}	\hfill (1) \hspace{1em}
+				 
+<elses>   ::=  \lit*{else\{}  \synt{prog}   \lit*{ \}}  			\hfill (0) \hspace{1em}
+			   \lit*{else\{}  \synt{action} \lit*{ \}}  			\hfill (1) \hspace{1em}
+
+
+<action> ::=  \lit*{goto(nearestPill)} 						  		\hfill (0) \hspace{1em}
+		 \alt \lit*{goto(nearestPowerPill)} 						\hfill (1) \hspace{1em}
+		 \alt \lit*{goto(nearestEdibleGhost)} 						\hfill (2) \hspace{1em}
+		 
+<equals> ::=  \lit*{<} (0)  | \lit*{<=} (1) | \lit*{>} (2) 
+		 | \lit*{>=} (3) | \lit*{==} (4)									   \hspace{1em}
+
+<vars> ::=  \lit*{thresholdDistanceGhost} 						  	\hfill (0) \hspace{1em}
+	   \alt \lit*{inedibleGhostDistance} 							\hfill (1) \hspace{1em}
+	   \alt \lit*{avgDistanceBetGhosts} 							\hfill (2) \hspace{1em}
+ 	   \alt \lit*{windowSize} 										\hfill (3) \hspace{1em}
+
+
+\end{grammar}
+
+\begin{itemize}
+	\item Fitness function: simulate the game.
+	\begin{itemize}
+		\item Game score on death becomes the fitness score.
+	\end{itemize}
+\end{itemize}
+
+
 \end{frame}
 
 \subsection{Experiment setup}
 \begin{frame}
 \frametitle{\currentname}
-Record scores over 100 runs with one life and in one level.
-Compare best evolved agent against:
+
 \begin{itemize}
-\item Random agent
-\item Random non-reverse agent
-\item Simple Pill Eater agent
-\item Hand-coded agent
+	\item Do 100 runs.
+	\item Afterwards, compare the best evolved agent against:
+	\begin{itemize}
+		\item Random agent.
+		\item Random non-reversing agent.
+		\item Simple greedy pill eater.
+		\item Hand-coded agent.
+	\end{itemize}
+	\item Play against three different ghost AI's.
+	
 \end{itemize}
-Against three different ghost teams.
 \end{frame}
 
 \subsection{Results}
 \begin{frame}
 \frametitle{\currentname}
-%TODO insert table of scores.
 
 \includegraphics[page=9, trim={3.5cm 10.5cm 3.5cm 3cm}, clip, scale=0.75]{PacMan_GE.pdf}
 
