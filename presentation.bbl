@@ -3,20 +3,21 @@
 \bibitem{galvan2010evolving}
 Edgar Galv{\'a}n-L{\'o}pez, John~Mark Swafford, Michael O’Neill, and Anthony
   Brabazon.
-\newblock Evolving a ms. pacman controller using grammatical evolution.
+\newblock Evolving a {Ms.\,PacMan} controller using {G}rammatical {E}volution.
 \newblock In {\em Applications of Evolutionary Computation}, pages 161--170.
   Springer, 2010.
 
 \bibitem{o2001grammatical}
 Michael O'Neill and Conor Ryan.
-\newblock Grammatical evolution.
-\newblock {\em Evolutionary Computation, IEEE Transactions on}, 5(4):349--358,
+\newblock {G}rammatical {E}volution.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 5(4):349--358,
   2001.
 
 \bibitem{shaker2012evolving}
 Noor Shaker, Miguel Nicolau, Georgios~N Yannakakis, Julian Togelius, and
   Michael O'Neill.
-\newblock Evolving levels for super mario bros using grammatical evolution.
+\newblock Evolving levels for {Super Mario Bros} using {G}rammatical
+  {E}volution.
 \newblock In {\em Computational Intelligence and Games (CIG), 2012 IEEE
   Conference on}, pages 304--311. IEEE, 2012.
 
