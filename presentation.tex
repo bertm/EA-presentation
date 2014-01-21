@@ -16,7 +16,7 @@
 
 % Styling.
 \setlength{\parskip}{1em}
-% \usetheme[style=plain,includehead=false,sidebar=true]{uu}
+\usetheme[style=plain,includehead=false,sidebar=true]{uu}
 \setlength{\grammarindent}{6.5em}
 
 % Title, subtitle, author and date.
@@ -46,7 +46,7 @@
 \begin{frame}
 \frametitle{Grammatical Evolution}
 \begin{itemize}
-\item Explained in paper \textit{Grammatical Evolution} by Michael O'Neill et al., 2001.
+\item Explained in paper \textit{Grammatical Evolution} by Michael O'Neill et al., 2001 \cite{o2001grammatical}
 \item Seeks to evolve sentences in a given context-free grammar.
 \item Heavily inspired by biology.
 \item Implemented in the GEVA framework.
@@ -161,6 +161,7 @@
 \section{Ms.\,Pac-Man controller}
 \begin{frame}
 \paper{Evolving a Ms.\,Pac-Man Controller Using Grammatical Evolution}{E. Galv\'an, J. Swafford, M. O'Neill, and A. Brabazon}
+\nocite{galvan2010evolving}
 \end{frame}
 
 \subsection{Goal}
@@ -204,6 +205,7 @@ Against three different ghost teams.
 \section{Super Mario Bros levels}
 \begin{frame}
 \paper{Evolving Levels for Super Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}
+\nocite{shaker2012evolving}
 \end{frame}
 
 \subsection{Goal}
@@ -413,19 +415,29 @@ be used both offline, in order to make the game development
 process more efficient, and online, to allow the generation of
 endless variations of a game, make it infinitely replayable and
 adapting its content to the player [15], \textcolor<2>{red}{[16]}. An overview of
-the \textbf{state of the art} can be found in \textcolor<2>{red}{[17]}, \textcolor<2>{red}{[18]}.''}
+the \textbf{state of the art} can be found in \textcolor<2>{red}{[17]}, \textcolor<2>{red}{[18]}.''} \cite{shaker2012evolving}
 \end{frame}
 
 \section{Conclusions}
 \begin{frame}
 \frametitle{\currentname}
 \begin{itemize}
-\item Don't use Grammatical Evolution.
+\item Effectiveness of Grammatical Evolution is questionable.
+\item Discussed papers fail to provide convincing evidence.
+\item Genetic Programming appears to be more promising.
+\vspace*{2em}
+\item<2-> Don't use Grammatical Evolution.
 \begin{itemize}
 \item Or at least not as described in the O'Neill papers.
 \end{itemize}
-\item %TODO
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{References}
+\small
+\bibliographystyle{plain}
+\bibliography{presentation}
 \end{frame}
 
 \end{document}
