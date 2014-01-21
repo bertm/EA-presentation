@@ -154,7 +154,7 @@ Use the following measures to compare them:
 \subsection{Results}
 \begin{frame}
 \frametitle{\currentname}
-\includegraphics[page=5, trim={11cm 15.5cm 1.5cm 8cm}, clip, scale=1.2]{Mario_GE.pdf}
+\includegraphics[page=5, trim={11cm 15.5cm 1.5cm 8cm}, clip, scale=1.1]{Mario_GE.pdf}
 \end{frame}
 
 
@@ -162,9 +162,16 @@ Use the following measures to compare them:
 \section{Discussion}
 \subsection{Grammatical Evolution}
 \begin{frame}
-\begin{center}
-\large What is \textit{wrong} with Grammatical Evolution?
-\end{center}
+\frametitle{Discussion}
+\begin{itemize}
+\item As mentioned, Grammatical Evolution is heavily inspired by biology.
+\begin{itemize}
+\item \textit{Not necessarily a good thing!}
+\item In this case, most references to biological terms are confusing at best.
+\end{itemize}
+\item Resembling nature is no guarantee for performance.
+\item Grammatical Evolution as used here has major flaws.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -227,7 +234,7 @@ Use the following measures to compare them:
 
 \begin{frame}
 \frametitle{Genetic operator performance}
-Let's try 1-point crossover and bit-flip mutation.
+Let's try 1-point crossover and int-flip mutation.
 
 \framebox{\parbox[t][][t]{13em}{\textbf{1 7 4 4 6 3}
 \\\texttt{if (kitten is dirty)
@@ -255,6 +262,18 @@ Let's try 1-point crossover and bit-flip mutation.
 }
 \end{frame}
 
+\begin{frame}
+\frametitle{Luckily\ldots}
+\begin{itemize}
+\item These problems are operator-dependent.
+\item Newer GEVA versions offers more structure-sensitive crossover and mutation operators.
+\begin{itemize}
+\item Similar to Genetic Programming.
+\item \textit{Too bad the authors did not use those!}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 \subsection{Paper trouble}
 \begin{frame}
 \frametitle{Not all papers are created equal\dots}
@@ -273,18 +292,15 @@ Let's try 1-point crossover and bit-flip mutation.
 \begin{frame}
 \frametitle{Pac-Man trouble}
 \begin{itemize}
+\item Lacking a solid performance reference point
+\begin{itemize}
 \item Custom Pac-Man implementation
 \item Only one level with one life
 \item Weird ghost behaviour
 \item \textit{Not even close to Ms.\,Pac-Man}
 \end{itemize}
-\begin{itemize}
-\item Lacking a solid performance reference point
 \item Non-repeatable due to lacking information
 \end{itemize}
-\visible<2>{\begin{itemize}
-\item \textit{And seriously, stop using misleading biological \\terminology.}
-\end{itemize}}
 \end{frame}
 
 \begin{frame}
@@ -295,7 +311,7 @@ Let's try 1-point crossover and bit-flip mutation.
 \begin{itemize}
 \item 15/30 papers referenced have at least one author in common with this work.
 \end{itemize}
-\visible<2->{\item There is a difference between Super Mario Bros.~and Notch's Infinite Mario Bros.}
+\visible<2->{\item There is a difference between Super Mario Bros.\ and Notch's Infinite Mario Bros.}
 \end{itemize}
 \visible<2->{\begin{center}\includegraphics[height=10em]{notch}\includegraphics[height=10em]{miyamoto}\end{center}
 }
@@ -311,15 +327,15 @@ Let's try 1-point crossover and bit-flip mutation.
 \begin{frame}
 \frametitle{`Wij van WC-eend\ldots'}
 \textit{``Procedural Content Generation (PCG) is a field that has
-recently emerged and proven its potential for automatically
+recently emerged and \textbf{proven its potential} for automatically
 generating different aspects of game content such as game
-rulesets [4], \textcolor{red}{[5]}, maps \textcolor{red}{[6]}, \textcolor{red}{[7]}, levels [8], \textcolor{red}{[9]}, [10], racing
-tracks [11], \textcolor{red}{[12]} or even whole games [13], [14]. PCG can
+rulesets [4], \textcolor<2>{red}{[5]}, maps \textcolor<2>{red}{[6]}, \textcolor<2>{red}{[7]}, levels [8], \textcolor<2>{red}{[9]}, [10], racing
+tracks [11], \textcolor<2>{red}{[12]} or even whole games [13], [14]. PCG can
 be used both offline, in order to make the game development
 process more efficient, and online, to allow the generation of
 endless variations of a game, make it infinitely replayable and
-adapting its content to the player [15], \textcolor{red}{[16]}. An overview of
-the state of the art can be found in \textcolor{red}{[17]}, \textcolor{red}{[18]}.''}
+adapting its content to the player [15], \textcolor<2>{red}{[16]}. An overview of
+the \textbf{state of the art} can be found in \textcolor<2>{red}{[17]}, \textcolor<2>{red}{[18]}.''}
 \end{frame}
 
 \section{Conclusions}
@@ -328,8 +344,9 @@ the state of the art can be found in \textcolor{red}{[17]}, \textcolor{red}{[18]
 \begin{itemize}
 \item Don't use Grammatical Evolution.
 \begin{itemize}
-\item Or, if you must, at least not as described in the O'Neill papers.
+\item Or at least not as described in the O'Neill papers.
 \end{itemize}
+\item %TODO
 \end{itemize}
 \end{frame}
 
