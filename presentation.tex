@@ -62,7 +62,7 @@
 \begin{itemize}
 	\item Move to the next codon for each encountered nonterminal.
 	\item Pick a rule to expand it to based on the codon value.
-	\item rule index = (codon value) MOD (rule count).
+	\item $rule index = (codon value)\ MOD\ (rule count)$.
 	\item Wrap when reaching the end of the sequence.
 	\item Stop when there are no more nonterminals, or a certain depth is reached.
 \end{itemize}
@@ -95,42 +95,42 @@
 	{	
 		\item Chromosome: \textbf{12 7 33 51 2 44 22 19}
 		\item Start with nonterminal <exp>.
-		\item 12 MOD 3 = 0, so pick first rule.
+		\item $12\ MOD\ 3 = 0$, so pick first rule.
 	}
 
 	\only<2>
 	{	
 		\item Chromosome: \textbf{\sout{12} 7 33 51 2 44 22 19}
 		\item Sentence: \synt{exp} \synt{operator} \synt{exp}
-		\item First expand leftmost subexpression: 7 MOD 3 = 1.
+		\item First expand leftmost subexpression: $7\ MOD\ 3 = 1$.
 	}
 
 	\only<3>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} 33 51 2 44 22 19}
 		\item Sentence: \lit*{1.0} \synt{operator} \synt{exp}
-		\item Operator is next: 33 MOD 4 = 1.
+		\item Operator is next: $33\ MOD\ 4 = 1$.
 	}
 
 	\only<4>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} 51 2 44 22 19}
 		\item Sentence: \lit*{1.0} \lit*{-} \synt{exp}
-		\item Remaining subexpression: 51 MOD 3 = 0.
+		\item Remaining subexpression: $51\ MOD\ 3 = 0$.
 	}
 
 	\only<5>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} \sout{51} 2 44 22 19}
 		\item Sentence: \lit*{1.0} \lit*{-} (\synt{exp} \synt{operator} \synt{exp})
-		\item Continue...
+		\item Continue\ldots
 	}
 
 	\only<6>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} \sout{51} \sout{2} \sout{44} \sout{22} 19}
 		\item Sentence: \lit*{1.0} \lit*{-} (\lit*{X} \lit*{+} \lit*{1.0})
-		\item No more nonterminals in sentance, so we are done.
+		\item No more nonterminals in sentence, so we are done.
 	}
 
 \end{itemize}
@@ -213,28 +213,28 @@
 \frametitle{\currentname}
 
 \begin{grammar}
-<prog>      ::=  \synt{ifs} (0) | \synt{ifs} \synt{elses} (1) 				   \hspace{1em}
+<prog>      ::=  \synt{ifs} (0) | \synt{ifs} \synt{elses} (1) 			   \hspace{1em}
 
-<ifs>     ::= \lit*{if( } \synt{vars} \synt{equals} 
-				 \synt{vars} \lit*{ )\{ } \synt{prog} \lit*{ \}}	\hfill (0) \hspace{1em}
-		       \lit*{if( } \synt{vars} \synt{equals} 
-				 \synt{vars} \lit*{ )\{ } \synt{action} \lit*{ \}}	\hfill (1) \hspace{1em}
+<ifs>     ::=  \lit*{if(} \synt{vars} \synt{equals} 
+		         \synt{vars} \lit*{)\{} \synt{prog} \lit*{\}}	\hfill (0) \hspace{1em}
+		  \alt \lit*{if(} \synt{vars} \synt{equals} 
+			   \synt{vars} \lit*{)\{} \synt{action} \lit*{\}}	\hfill (1) \hspace{1em}
 				 
-<elses>   ::=  \lit*{else\{}  \synt{prog}   \lit*{ \}}  			\hfill (0) \hspace{1em}
-			   \lit*{else\{}  \synt{action} \lit*{ \}}  			\hfill (1) \hspace{1em}
+<elses>   ::=  \lit*{else\{}  \synt{prog}   \lit*{\}}  			\hfill (0) \hspace{1em}
+		   |   \lit*{else\{}  \synt{action} \lit*{\}}  			\hfill (1) \hspace{1em}
 
 
-<action> ::=  \lit*{goto(nearestPill)} 						  		\hfill (0) \hspace{1em}
-		 \alt \lit*{goto(nearestPowerPill)} 						\hfill (1) \hspace{1em}
-		 \alt \lit*{goto(nearestEdibleGhost)} 						\hfill (2) \hspace{1em}
+<action> ::=  \lit*{goto(nearestPill)} 						  	\hfill (0) \hspace{1em}
+		 \alt \lit*{goto(nearestPowerPill)} 					\hfill (1) \hspace{1em}
+		 \alt \lit*{goto(nearestEdibleGhost)} 					\hfill (2) \hspace{1em}
 		 
 <equals> ::=  \lit*{<} (0)  | \lit*{<=} (1) | \lit*{>} (2) 
-		 | \lit*{>=} (3) | \lit*{==} (4)									   \hspace{1em}
+		 | \lit*{>=} (3) | \lit*{==} (4)								   \hspace{1em}
 
-<vars> ::=  \lit*{thresholdDistanceGhost} 						  	\hfill (0) \hspace{1em}
-	   \alt \lit*{inedibleGhostDistance} 							\hfill (1) \hspace{1em}
-	   \alt \lit*{avgDistanceBetGhosts} 							\hfill (2) \hspace{1em}
- 	   \alt \lit*{windowSize} 										\hfill (3) \hspace{1em}
+<vars> ::=  \lit*{thresholdDistanceGhost} 					 	\hfill (0) \hspace{1em}
+	   \alt \lit*{inedibleGhostDistance} 						\hfill (1) \hspace{1em}
+	   \alt \lit*{avgDistanceBetGhosts} 						\hfill (2) \hspace{1em}
+ 	   \alt \lit*{windowSize} 									\hfill (3) \hspace{1em}
 
 
 \end{grammar}
