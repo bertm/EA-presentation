@@ -202,7 +202,7 @@ Against three different ghost teams.
 
 
 
-\section{Super Mario Bros levels}
+\section{Super Mario Bros.\ levels}
 \begin{frame}
 \paper{Evolving Levels for Super Mario Bros Using Grammatical Evolution}{N. Shaker, M. Nicolau, G. Yannakakis, J. Togelius, and M. O'Neill}
 \nocite{shaker2012evolving}
@@ -212,29 +212,54 @@ Against three different ghost teams.
 \begin{frame}
 \frametitle{\currentname}
 \begin{itemize}
-\item Evolve levels for Infinite Mario Bros using Grammatical Evolution.
-\item To provide a framework for analyzing and comparing expressivity ranges of different generators.
+\item Evolve levels for Super Mario Bros.\ using Grammatical Evolution.
+\item Secondary goal: to provide a framework for analyzing and comparing expressivity of different generators.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Grammar and fitness}
+\begin{itemize}
+\item A level is a collection of \textit{chunks} (functional attributes) at specified positions.
+\item Simplified grammar:
+\vspace{1em}\begin{grammar}
+<chunks> ::= \synt{chunk} \hfill (0) \hspace{1em}
+        \alt \synt{chunk} \synt{chunks} \hfill (1) \hspace{1em}
+        
+<chunk>  ::= \lit*{coin(}\synt{x}\lit*{,}\synt{y}\lit*{,}\synt{w}\lit*{)} \hfill (0) \hspace{1em}
+        \alt \lit*{enemy(}\synt{x}\lit*{,}\synt{y}\lit*{,}\synt{w}\lit*{)} \hfill (1) \hspace{1em}
+        \alt \lit*{hill(}\synt{x}\lit*{,}\synt{y}\lit*{,}\synt{w}\lit*{)} \hfill (2) \hspace{1em}
+        \alt [...]
+\end{grammar}\vspace{1em}
+\item The fitness is a weighted sum of distance to the required \textit{number of chunks}, and the number of conflicting chunks.
+\begin{itemize}
+\item Chunks are conflicting if they functionally overlap.
+\item Unfortunately, the weights are not given.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
 \subsection{Experiment setup}
 \begin{frame}
 \frametitle{\currentname}
-Evolve level for Notch's Infinite Mario Bros game.\\
-Compare against Notch's level generator and against an adapted version of that generator.\\
-Use the following measures to compare them:
 \begin{itemize}
-\item Linearity
-\item Density
-\item Leniency
-\item Compression Distance
+\item Evolve level for Notch's Infinite Mario Bros game.
+\item Compare against Notch's level generator and against an adapted (`parametrized') version of that generator.
+\item Use the following expressivity measures to compare them:
+\begin{itemize}
+\item \textbf{Linearity}, the flatness of the level
+\item \textbf{Density}, the clusteredness of the chunks
+\item \textbf{Leniency}, the playability of the level
+\item \textbf{Compression distance}, a randomness measure
+\end{itemize}
 \end{itemize}
 \end{frame}
 
 \subsection{Results}
 \begin{frame}
 \frametitle{\currentname}
-\includegraphics[page=5, trim={11cm 15.5cm 1.5cm 8cm}, clip, scale=1.1]{Mario_GE.pdf}
+\includegraphics[page=5, trim={11cm 15.5cm 1.5cm 8cm}, clip, scale=1.1]{Mario_GE.pdf}\\
+\hspace{4em}{\scriptsize Measured expressivity for the different generators. \cite{shaker2012evolving}}
 \end{frame}
 
 
@@ -373,6 +398,7 @@ Let's try 1-point crossover and int-flip mutation.
 \item Lacking source code
 \item Lacking data / results
 \end{itemize}
+\item Non-justified parameter choices
 \end{itemize}
 \end{frame}
 
@@ -393,7 +419,8 @@ Let's try 1-point crossover and int-flip mutation.
 \begin{frame}
 \frametitle{Mario trouble}
 \begin{itemize}
-\item Pointless fitness function
+\item Pointless fitness function.
+\item Lack of justification for used measures.
 \item There is nothing wrong with referring to your own work, \\\textit{but don't overdo it}.
 \begin{itemize}
 \item 15/30 papers referenced have at least one author in common with this work.
@@ -409,6 +436,11 @@ Let's try 1-point crossover and int-flip mutation.
 \framebox{\includegraphics[width=0.9\textwidth]{coin-optimal}}
 
 \framebox{\includegraphics[width=0.9\textwidth]{goomba-optimal}}
+\bigskip
+
+Remember:
+\\\textit{``[...] the main objective of the fitness function is to create 
+\\levels with an acceptable number of chunks.''} \cite{galvan2010evolving}
 \end{frame}
 
 \begin{frame}
