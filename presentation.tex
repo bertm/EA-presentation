@@ -259,7 +259,7 @@
 	\item Afterwards, compare the best evolved agent against:
 	\begin{itemize}
 		\item Random agent.
-		\item Random non-reversing agent.
+		\item Random non-backtracking agent.
 		\item Simple greedy pill eater.
 		\item Hand-coded agent.
 	\end{itemize}
@@ -320,11 +320,12 @@
         \alt \lit*{hill(}\synt{x}\lit*{,}\synt{y}\lit*{,}\synt{w}\lit*{)} \hfill (2) \hspace{1em}
         \alt [...]
 \end{grammar}\vspace{1em}
-\item The fitness is a weighted sum of distance to the required \textit{number of chunks}, and the number of conflicting chunks.
+\item The fitness is a weighted sum of two properties:
 \begin{itemize}
-\item Chunks are conflicting if they functionally overlap.
-\item Unfortunately, the weights are not given.
+	\item Difference between the \textit{number of chunks} and a certain treshold.
+	\item The number of overlapping chunks.
 \end{itemize}
+\item Unfortunately, the weights are not given.
 \end{itemize}
 \end{frame}
 
@@ -496,7 +497,7 @@ strings, we do not have to employ any special crossover or mutation operators [.
 \frametitle{Not all papers are created equal\dots}
 \begin{itemize}
 \item Several apparent problems with the papers.
-\item Titles are \sout{misleading} not entirely accurate.
+\item Titles are not entirely accurate.
 \item Experiments cannot be verified
 \begin{itemize}
 \item Missing parameters
@@ -530,6 +531,9 @@ strings, we do not have to employ any special crossover or mutation operators [.
 \frametitle{Mario trouble}
 \begin{itemize}
 \item Pointless fitness function.
+\begin{itemize}
+	\item Why not use the expressivity measures?
+\end{itemize}
 \item Lack of justification for used measures.
 \item There is nothing wrong with referring to your own work, \\\textit{but don't overdo it}.
 \begin{itemize}
@@ -548,8 +552,7 @@ strings, we do not have to employ any special crossover or mutation operators [.
 \framebox{\includegraphics[width=0.9\textwidth]{goomba-optimal}}
 \bigskip
 
-Remember:
-\\\textit{``[...] the main objective of the fitness function is to create 
+\textit{``[...] the main objective of the fitness function is to create 
 \\levels with an acceptable number of chunks.''} \cite{galvan2010evolving}
 \end{frame}
 
