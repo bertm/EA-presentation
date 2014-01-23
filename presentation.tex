@@ -61,8 +61,8 @@
 \item Mehcanism:
 \begin{itemize}
 	\item Move to the next codon for each encountered nonterminal.
-	\item Pick a rule to expand it to based on the codon value.
-	\item $rule index = (codon value)\ mod\ (rule count)$.
+	\item Pick a production to expand it to based on the codon value.
+	\item $production = codon\ value\ (\mathbf{mod}\ production\ count)$
 	\item Wrap when reaching the end of the sequence.
 	\item Stop when there are no more nonterminals, or a certain depth is reached.
 \end{itemize}
@@ -95,28 +95,28 @@
 	{	
 		\item Chromosome: \textbf{12 7 33 51 2 44 22 19}
 		\item Start with nonterminal <exp>.
-		\item $12\ mod\ 3 = 0$, so pick first rule.
+		\item $12 = 0\ (\mathbf{mod}\ 3)$, so pick first production.
 	}
 
 	\only<2>
 	{	
 		\item Chromosome: \textbf{\sout{12} 7 33 51 2 44 22 19}
 		\item Sentence: \synt{exp} \synt{operator} \synt{exp}
-		\item First expand leftmost subexpression: $7\ mod\ 3 = 1$.
+		\item First expand leftmost subexpression: $7 = 1\ (\mathbf{mod}\ 3)$.
 	}
 
 	\only<3>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} 33 51 2 44 22 19}
 		\item Sentence: \lit*{1.0} \synt{operator} \synt{exp}
-		\item Operator is next: $33\ mod\ 4 = 1$.
+		\item Operator is next: $33 = 1\ (\mathbf{mod}\ 4)$.
 	}
 
 	\only<4>
 	{		
 		\item Chromosome: \textbf{\sout{12} \sout{7} \sout{33} 51 2 44 22 19}
 		\item Sentence: \lit*{1.0} \lit*{-} \synt{exp}
-		\item Remaining subexpression: $51\ mod\ 3 = 0$.
+		\item Remaining subexpression: $51 = 0\ (\mathbf{mod}\ 3)$.
 	}
 
 	\only<5>
@@ -272,8 +272,8 @@
 \begin{frame}
 \frametitle{\currentname}
 
-\includegraphics[page=9, trim={3.5cm 10.5cm 3.5cm 3cm}, clip, scale=0.75]{PacMan_GE.pdf}
-
+\hspace{4em}\includegraphics[page=9, trim={3.5cm 10.5cm 3.5cm 3cm}, clip, scale=0.75]{PacMan_GE.pdf}
+\\\hspace{5.5em}{\scriptsize Results of the different experiments. \cite{galvan2010evolving}}
 
 \end{frame}
 
